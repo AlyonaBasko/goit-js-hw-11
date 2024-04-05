@@ -26,6 +26,9 @@ function createImageCard(image) {
     const card = document.createElement('div');
     card.classList.add('image-card');
 
+    const a = document.createElement('a');
+    a.href = image.largeImageURL;
+
     const img = document.createElement('img');
     img.src = image.webformatURL;
     img.alt = image.tags;
