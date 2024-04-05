@@ -1,5 +1,8 @@
 import iziToast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
+
 
 export function renderImages(images) {
     const gallery = document.getElementById('gallery');
@@ -9,10 +12,14 @@ export function renderImages(images) {
         showNoImagesMessage();
         return;
     }
+
+    const lightbox = new SimpleLightbox('.image-card a');
+
     images.forEach(image => {
         const card = createImageCard(image);
         gallery.appendChild(card);
     });
+    lightbox.refresh();
 }
 
 function createImageCard(image) {
