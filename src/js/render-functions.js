@@ -33,23 +33,33 @@ function createImageCard(image) {
     img.src = image.webformatURL;
     img.alt = image.tags;
 
-    const likes = document.createElement('p');
-    likes.textContent = `Likes: ${image.likes}`;
+    const details = document.createElement('div');
+    details.classList.add('details');
 
-    const views = document.createElement('p');
-    views.textContent = `Views: ${image.views}`;
+    const likes = document.createElement('div');
+    likes.classList.add('detail');
+    likes.innerHTML = `Likes: ${image.likes}`;
 
-    const comments = document.createElement('p');
-    comments.textContent = `Comments: ${image.comments}`;
+    const views = document.createElement('div');
+    views.classList.add('detail');
+    views.innerHTML = `Views: ${image.views}`;
 
-    const downloads = document.createElement('p');
-    downloads.textContent = `Downloads: ${image.downloads}`;
+    const comments = document.createElement('div');
+    comments.classList.add('detail');
+    comments.innerHTML = `Comments: ${image.comments}`;
 
-    card.appendChild(img);
-    card.appendChild(likes);
-    card.appendChild(views);
-    card.appendChild(comments);
-    card.appendChild(downloads);
+    const downloads = document.createElement('div');
+    downloads.classList.add('detail');
+    downloads.innerHTML = `Downloads: ${image.downloads}`;
+
+    a.appendChild(img);
+    card.appendChild(a);
+
+    details.appendChild(likes);
+    details.appendChild(views);
+    details.appendChild(comments);
+    details.appendChild(downloads);
+    card.appendChild(details);
 
     return card;
 }
