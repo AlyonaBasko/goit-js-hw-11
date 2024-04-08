@@ -12,7 +12,7 @@ export async function searchImages(query) {
         const data = await response.json();
         return data.hits;
     } catch (error) {
-        console.error('Error searching images:', error.message);
-        throw error;
+        console.error(error);
+        return [];
     }
 }
