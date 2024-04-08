@@ -1,7 +1,3 @@
-import iziToast from "izitoast";
-import "izitoast/dist/css/iziToast.min.css";
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
 
 import { searchImages } from './js/pixabay-api.js';
 import { renderImages } from './js/render-functions.js';
@@ -23,10 +19,14 @@ searchForm.addEventListener('submit', async function(event) {
         return;
     }
     
+    loader.style.display = 'block';
+
     try {
         const images = await searchImages(query);
         renderImages(images);
     } catch (error) {
-        console.error('Error searching images:', error.message);
+        console.error(error);
+    } finally {
+        loader.style.display = 'none';
     }
 });
