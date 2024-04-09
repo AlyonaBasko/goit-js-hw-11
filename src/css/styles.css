@@ -46,6 +46,7 @@ padding: 8px 16px;
 text-align: center;
 border: none;
 cursor: pointer;
+margin-left: 8px;
 }
 
 #loader {
@@ -64,11 +65,7 @@ color: #2e2f42;
   grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   gap: 24px;
 }
-div .detail {
-  display: flex;
-  flex-direction: column;
 
-}
 .image-card {
   border: 1px solid #808080;
   width: auto;
@@ -76,7 +73,7 @@ div .detail {
 
 .image-card .details {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 12px;
@@ -90,4 +87,10 @@ div .detail {
 
 .image-card .details .detail {
   margin-bottom: 4px;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
