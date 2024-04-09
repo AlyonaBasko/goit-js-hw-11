@@ -69,27 +69,45 @@ color: #2e2f42;
 .image-card {
   border: 1px solid #808080;
   width: auto;
-  display: flex;
-  flex-direction: column;
+  
 }
 
 .image-card .details {
+  display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: space-evenly;
+}
+
+
+.image-card .detail {
+  display: flex;
+    flex-direction: column;
+  margin-bottom: 5px;
+  align-items: center
+}
+
+.detail:last-child {
+  margin-bottom: 0; 
+}
+
+.image-card .detail-label {
   font-family: "Montserrat", sans-serif;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 1.33333;
-  letter-spacing: 0.04em;
-  color: #2e2f42;
-  text-align: center;
-  display: flex;
-  flex-direction: row;
+font-weight: 600;
+font-size: 12px;
+line-height: 1.33333;
+letter-spacing: 0.04em;
+color: #2e2f42; 
+margin-left: 5px;
 
 }
 
-.detail {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 5px; /* Простір між елементами */
+.image-card .detail-value {
+  font-family: "Montserrat", sans-serif;
+font-weight: 400;
+font-size: 12px;
+line-height: 2;
+letter-spacing: 0.04em;
+color: #2e2f42;
+margin-left: 5px;
 }
-
