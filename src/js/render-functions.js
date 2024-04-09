@@ -36,32 +36,39 @@ function createImageCard(image) {
     const details = document.createElement('div');
     details.classList.add('details');
 
-    const likes = document.createElement('div');
-    likes.classList.add('detail');
-    likes.innerHTML = `Likes: ${image.likes}`;
-
-    const views = document.createElement('div');
-    views.classList.add('detail');
-    views.innerHTML = `Views: ${image.views}`;
-
-    const comments = document.createElement('div');
-    comments.classList.add('detail');
-    comments.innerHTML = `Comments: ${image.comments}`;
-
-    const downloads = document.createElement('div');
-    downloads.classList.add('detail');
-    downloads.innerHTML = `Downloads: ${image.downloads}`;
+    const likesContainer = createDetailElement('Likes:', image.likes);
+    const viewsContainer = createDetailElement('Views:', image.views);
+    const commentsContainer = createDetailElement('Comments:', image.comments);
+    const downloadsContainer = createDetailElement('Downloads:', image.downloads);
 
     a.appendChild(img);
     card.appendChild(a);
 
-    details.appendChild(likes);
-    details.appendChild(views);
-    details.appendChild(comments);
-    details.appendChild(downloads);
+    details.appendChild(likesContainer);
+    details.appendChild(viewsContainer);
+    details.appendChild(commentsContainer);
+    details.appendChild(downloadsContainer);
     card.appendChild(details);
 
     return card;
+}
+
+function createDetailElement(label, value) {
+    const container = document.createElement('div');
+    container.classList.add('detail');
+
+    const labelElement = document.createElement('div');
+    labelElement.classList.add('detail-label');
+    labelElement.textContent = label;
+
+    const valueElement = document.createElement('div');
+    valueElement.classList.add('detail-value');
+    valueElement.textContent = value;
+
+    container.appendChild(labelElement);
+    container.appendChild(valueElement);
+
+    return container;
 }
 
 function showNoImagesMessage() {
