@@ -21,12 +21,15 @@ searchForm.addEventListener('submit', async function(event) {
     
     loader.style.display = 'block';
 
-    try {
-        const images = await searchImages(query);
-        renderImages(images);
-    } catch (error) {
-        console.error(error);
-    } finally {
-        loader.style.display = 'none';
-    }
+    searchImages(query)
+        .then(data => {
+            const images = data.hits; 
+            renderImages(images); 
+        })
+        .catch(error => {
+            console.error(error);
+        })
+        .finally(() => {
+            loader.style.display = 'none';
+        });
 });
